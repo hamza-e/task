@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         $this->validate($request,[
             'name'=>'required|max:30',
-            'email'=>'required|max:30'
+            'email'=>'required|email|max:30'
         ]);
 
         $user = new User();
@@ -97,7 +97,7 @@ class UserController extends Controller
         $user = User::find($id);
         $this->validate($request,[
             'name'=>'required|max:30',
-            'email'=>'required|max:30'
+            'email'=>'required|email|max:30'
         ]);
 
         $user->name = $request->input('name');

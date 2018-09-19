@@ -1,20 +1,20 @@
 @extends('master')
-
-@section('content')
+	
+	@section('content')
 		<div class="container spacer col-md-6 col-xs-12 col-md-offset-3">
 
 			<div class="panel panel-default">
 			<div class="panel-heading"> <center><h4>Add a user</h4></center> </div>
 			<div class="panel-body"> 
-				<form method="POST" action="{{route('users.store')}}">
+				<form method="POST" action="{{route('users.store')}}" id="form" data-parsley-validate>
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<div class="form-group">
 						<label class="controle-label">Name : </label>
-						<input type="text" name="name"  class="form-control"/>
+						<input type="text" name="name"  class="form-control" required />
 					</div>
 					<div class="form-group">
 						<label class="controle-label">Email : </label>
-						<input type="email" name="email"  class="form-control" />
+						<input type="email" name="email"  class="form-control" required />
 					</div>
 					<div class="form-group">
 						<label class="controle-label">Team : </label>
@@ -36,3 +36,4 @@
 	$('.select2-multi').select2();
 </script>
 @endsection
+
